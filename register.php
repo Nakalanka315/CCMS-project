@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Please enter a valid email address (e.g. name@example.com).';
     }
 
-    // Phone Validation (Sri Lankan standard)
+    // Phone Validation 
     if ($phone === '') {
         $errors[] = 'Phone number is required.';
     } elseif ($phoneErr = get_phone_validation_error($phone)) {

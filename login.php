@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             audit($pdo, 'LOGIN', 'users', $user['user_id']);
             redirect('/ccms/dashboard.php');
         } else {
-            // failed attempt -- generic message either way (username enumeration protection)
+            // failed attempt -- generic message either way
             $error = 'Invalid username or password.';
             if ($user) {
                 $attempts = $user['failed_attempts'] + 1;
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var card = document.querySelector('.ccms-auth-card');
         if (card) {
           card.classList.remove('shake-animation');
-          void card.offsetWidth; // trigger reflow
+          void card.offsetWidth;
           card.classList.add('shake-animation');
         }
         if (typeof showToast === 'function') {
